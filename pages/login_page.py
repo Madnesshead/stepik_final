@@ -1,6 +1,9 @@
 from .base_page import BasePage
 from .locators import LoginPageLocators
+import time
 
+email = str(time.time()) + "@fakemail.org"
+password = 'Test123456'
 
 class LoginPage(BasePage):
     def should_be_login_page(self):
@@ -31,3 +34,11 @@ class LoginPage(BasePage):
             "Password confirmation field is not presented"
         assert self.is_element_present(*LoginPageLocators.REGISTR_BUTTON), \
             "Register button is not presented"
+
+    def register_new_user(self, email, password):
+        self.browser.find_element(*LoginPageLocators.REGISTR_EMAIL).send_keys(email)
+        self.browser.find_element(*LoginPageLocators.REGISTR_PASSWD).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REGISTR_CONFIRM).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REGISTR_BUTTON).click()
+
+
