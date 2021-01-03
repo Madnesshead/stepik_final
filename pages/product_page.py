@@ -10,19 +10,17 @@ class ProductPage(BasePage):
         self.add_product_to_basket()
 
     def should_be_product_url(self):
-        assert self.browser.current_url == 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/?promo=newYear', \
+        assert self.browser.current_url == 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/?promo=newYear2019', \
             'Current page is not product page'
 
     def add_product_to_basket(self):
-        name = "The shellcoder's handbook"
-        price = '£9.99'
-        assert self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text == name, 'Wrong book name'
-        assert self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text == price, 'Wrong book price'
+        name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
+        price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
         assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET), "Add to basket button is not presented"
         basket = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET)
         basket.click()
         self.solve_quiz_and_get_code()
-        assert self.browser.find_element(*ProductPageLocators.BOOK_NAME_IN_ALERT).text == name, \
-            'Wrong name for book added to basket'
-        assert self.browser.find_element(*ProductPageLocators.BOOK_PRICE_IN_ALERT).text == price, \
-            'Wrong price for book added to basket'
+        name_in_basket = self.browser.find_element(*ProductPageLocators.BOOK_NAME_IN_ALERT).text
+        price_in_basket = self.browser.find_element(*ProductPageLocators.BOOK_PRICE_IN_ALERT).text
+        assert name_in_basket == name, 'Wrong name for book added to basket'
+        assert price_in_basket == price, 'Wrong price for book added to basket'
