@@ -6,11 +6,11 @@ import time
 class ProductPage(BasePage):
 
     def should_be_product_page(self):
-        # self.should_be_product_url()
+        self.should_be_product_url()
         self.add_product_to_basket()
 
     def should_be_product_url(self):
-        assert self.browser.current_url == 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/?promo=newYear2019', \
+        assert 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/' in self.browser.current_url, \
             'Current page is not product page'
 
     def add_product_to_basket(self):
