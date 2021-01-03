@@ -25,3 +25,4 @@ class ProductPageLocators:
     BOOK_NAME_IN_ALERT = (By.XPATH, '//div[contains(@class, "alertinner")]/strong')
     BOOK_PRICE_IN_ALERT = (By.XPATH, '//div[contains(@class, "alertinner")]/p/strong')
     THIRD_ALERT = (By.CSS_SELECTOR, 'div.alert:nth-child(3)')
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, 'div.alert:nth-child(1)')
