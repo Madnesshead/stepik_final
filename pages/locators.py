@@ -3,7 +3,8 @@ from selenium.webdriver.common.by import By
 
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    # LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_BUTTON = (By.XPATH, "//span/a")
 
 
 class MainPageLocators:
@@ -31,3 +32,10 @@ class ProductPageLocators:
     BOOK_PRICE_IN_ALERT = (By.XPATH, '//div[contains(@class, "alertinner")]/p/strong')
     THIRD_ALERT = (By.CSS_SELECTOR, 'div.alert:nth-child(3)')
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, 'div.alert:nth-child(1)')
+
+
+class BasketPageLocators:
+    ITEMS_TO_BUY = (By.XPATH, '//div[contains(@class, "row")]/h2')
+    EMPTY_BASKET_MESSAGE = (By.XPATH, '//div[contains(@id, "content_inner")]/p')
+    EMPTY_BASKET_LINK = (By.XPATH, '//div[contains(@id, "content_inner")]/p/a')
+
