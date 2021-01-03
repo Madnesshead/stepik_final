@@ -38,4 +38,3 @@ class BasketPageLocators:
     ITEMS_TO_BUY = (By.XPATH, '//div[contains(@class, "row")]/h2')
     EMPTY_BASKET_MESSAGE = (By.XPATH, '//div[contains(@id, "content_inner")]/p')
     EMPTY_BASKET_LINK = (By.XPATH, '//div[contains(@id, "content_inner")]/p/a')
-
